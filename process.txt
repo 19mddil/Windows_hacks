@@ -1,0 +1,7 @@
+open registry editor
+Find : Computer\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\wuauserv
+if wuauserv is absent run the reg file.
+in cmd run this command
+sc create wuauserv DisplayName= "Windows Update" binpath= "C:\WINDOWS\system32\svchost.exe -k netsvcs -p" Start= delayed-auto depend= RpcSs
+The command will create a windows update in services
+Now,check for updates and downloading new drivers will work
